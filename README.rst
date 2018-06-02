@@ -1,8 +1,8 @@
-========================================
-CellML Split Reaction Diffusion Equation
-========================================
+=====================================================================================================================
+Solving a 1D Reaction Diffusion Equation with operator splitting (strang) and where the reaction is defined in CellML
+=====================================================================================================================
 
-This example solves the weak form of the one-dimensional reaction-diffusion equation using the Galerkin finite element method. The classical form of the governing partial differential eqiation (PDE) in three-dimension is given by,  
+This example solves the weak form of the one-dimensional reaction-diffusion equation using the Galerkin finite element method. The classical form of the governing partial differential equation (PDE) in three-dimension is given by,  
 
 |3d_reaction_diffusion_equation|
 
