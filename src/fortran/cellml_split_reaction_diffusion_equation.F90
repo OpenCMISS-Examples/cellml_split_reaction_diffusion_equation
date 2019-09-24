@@ -123,10 +123,9 @@ PROGRAM CELLML_SPLIT_REACTION_DIFFUSION_EQUATION
   if (iargc()>0) then
       call getarg(1,arg)
       l=len_trim(arg)
-      if( trim(arg)( l:l ) /= '/' ) then
+      input_path=trim(arg)
+      if( input_path( l:l ) /= '/' ) then
            input_path=trim(arg) // trim("/")
-      else
-           input_path=trim(arg)
       end if
   end if
 
