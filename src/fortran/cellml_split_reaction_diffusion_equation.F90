@@ -90,6 +90,9 @@ PROGRAM CELLML_SPLIT_REACTION_DIFFUSION_EQUATION
   INTEGER(CMISSIntg) :: EquationsSetIndex,CellMLIndex
   INTEGER(CMISSIntg) :: Err
 
+
+  INTEGER :: argc,l
+  CHARACTER(len=255) :: input_path,arg
   
 #ifdef WIN32
   !Initialise QuickWin
@@ -115,6 +118,17 @@ PROGRAM CELLML_SPLIT_REACTION_DIFFUSION_EQUATION
 
   NUMBER_GLOBAL_X_ELEMENTS=10
   NUMBER_OF_DOMAINS=NumberOfComputationalNodes
+
+  input_path=""
+  if (iargc()>0) then
+      call getarg(1,arg)
+      l=len_trim(arg)
+      if( trim(arg)( l:l ) /= '/' ) then
+           input_path=trim(arg) // trim("/")
+      else
+           input_path=trim(arg)
+      end if
+  end if
 
   !Set all diganostic levels on for testing
 
@@ -272,7 +286,7 @@ PROGRAM CELLML_SPLIT_REACTION_DIFFUSION_EQUATION
   CALL cmfe_CellML_Initialise(CellML,Err)
   CALL cmfe_CellML_CreateStart(CellMLUserNumber,Region,CellML,Err)
   !Import a constant source (i.e. rate of generation/depletion is zero) model from a file
-  CALL cmfe_CellML_ModelImport(CellML,"constant_rate.xml",constantModelIndex,Err)
+  CALL cmfe_CellML_ModelImport(CellML,trim(input_path) // trim("constant_rate.xml"),constantModelIndex,Err)
   !Speify the variables in the imported model that will be used. 
   
   ! Now we have imported all the models we are able to specify which variables from the model we want:
