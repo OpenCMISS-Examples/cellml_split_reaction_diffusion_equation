@@ -40,12 +40,20 @@ where |a| is a constant. Here two different time steps are used for the time int
    :align: bottom
    
 
-Building the example
+Downloading the example 
 ====================
+
+This example can be downloaded using git clone::
+
+  git clone https://github.com/OpenCMISS-Examples/cellml_split_reaction_diffusion_equation
+
+The python is immediately executable, but the Fortran executable needs to be built first
+
+Building the example in Fortran
+===============================
 
 The fortran version of the example can be configured and built with CMake::
 
-  git clone https://github.com/OpenCMISS-Examples/cellml_split_reaction_diffusion_equation
   mkdir cellml_split_reaction_diffusion_equation-build
   cd cellml_split_reaction_diffusion_equation-build
   cmake -DOpenCMISSLibs_DIR=/path/to/opencmisslib/install ../cellml_split_reaction_diffusion_equation
@@ -53,13 +61,20 @@ The fortran version of the example can be configured and built with CMake::
 
 This will create the example executable "cellml_split_reaction_diffusion_equation" in ./src/fortran/ directory.
 
+
 Running the example
 ===================
+
+Python version::
+
+  cd ./src/python/
+  python cellml_split_reaction_diffusion_equation.py
 
 Fortran version::
 
   cd ./src/fortran/
   ./cellml_split_reaction_diffusion_equation
+
 
 Verifying the example
 =====================
