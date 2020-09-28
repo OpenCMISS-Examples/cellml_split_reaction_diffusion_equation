@@ -1,0 +1,26 @@
+
+$name = "cellml_split_reaction_diffusion_equation";
+
+gfx read node $name.part0.exnode;
+gfx read elem $name.part0.exelem;
+
+gfx modify g_element cellml_split_reaction_diffusion_equation general clear circle_discretization 12 default_coordinate Coordinate element_discretization "4*4*4" native_discretization none;
+gfx modify g_element cellml_split_reaction_diffusion_equation cylinders constant_radius 1 select_on material default data U spectrum default selected_material default_selected render_shaded;
+
+gfx modify spectrum default autorange;
+
+
+gfx create axes length 10;
+gfx draw axes;
+gfx set transformation name axes 1 0 0 0 0 1 0 0 0 0 1 0 -5 -5 0 1;
+
+
+gfx create window 1 double_buffer;
+gfx modify window 1 image scene default light_model default;
+gfx modify window 1 image add_light default;
+gfx modify window 1 layout simple ortho_axes z -y eye_spacing 0.25 width 550 height 350;
+gfx modify window 1 set current_pane 1;
+gfx modify window 1 background colour 0 0 0 texture none;
+gfx modify window 1 view parallel eye_point -13.7761 -153.117 118.77 interest_point 47.5073 0.656035 -0.435217 up_vector 0.47071 0.415689 0.778225 view_angle 24.2458 near_clipping_plane 2.0399 far_clipping_plane 728.99 relative_viewport ndc_placement -1 1 2 2 viewport_coordinates 0 0 1 1;
+gfx modify window 1 overlay scene none;
+gfx modify window 1 set transform_tool current_pane 1 std_view_angle 40 normal_lines no_antialias depth_of_field 0.0 fast_transparency blend_normal;
